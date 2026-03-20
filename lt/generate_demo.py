@@ -14,11 +14,34 @@ DEMO_DIR = '/tmp/lt_demo/my-project'
 
 subprocess.run(['bash', '-c', f'''
 mkdir -p {DEMO_DIR}/{{src,tests,docs,data}}
-touch {DEMO_DIR}/{{README.md,setup.py,.gitignore,Makefile}}
-touch {DEMO_DIR}/src/{{__init__.py,main.py,config.py,utils.py}}
-touch {DEMO_DIR}/tests/{{__init__.py,test_main.py,test_utils.py}}
-touch {DEMO_DIR}/docs/{{index.md,api.md,guide.md}}
-for i in $(seq 1 40); do touch "{DEMO_DIR}/data/sample_$(printf '%03d' $i).csv"; done
+
+# root files with realistic sizes
+head -c 2400 /dev/urandom | base64 > {DEMO_DIR}/README.md
+head -c 1800 /dev/urandom | base64 > {DEMO_DIR}/setup.py
+head -c 120 /dev/urandom | base64 > {DEMO_DIR}/.gitignore
+head -c 950 /dev/urandom | base64 > {DEMO_DIR}/Makefile
+
+# source files
+head -c 50 /dev/urandom | base64 > {DEMO_DIR}/src/__init__.py
+head -c 8500 /dev/urandom | base64 > {DEMO_DIR}/src/main.py
+head -c 3200 /dev/urandom | base64 > {DEMO_DIR}/src/config.py
+head -c 5400 /dev/urandom | base64 > {DEMO_DIR}/src/utils.py
+
+# test files
+head -c 50 /dev/urandom | base64 > {DEMO_DIR}/tests/__init__.py
+head -c 6200 /dev/urandom | base64 > {DEMO_DIR}/tests/test_main.py
+head -c 4100 /dev/urandom | base64 > {DEMO_DIR}/tests/test_utils.py
+
+# docs
+head -c 12000 /dev/urandom | base64 > {DEMO_DIR}/docs/index.md
+head -c 8800 /dev/urandom | base64 > {DEMO_DIR}/docs/api.md
+head -c 6500 /dev/urandom | base64 > {DEMO_DIR}/docs/guide.md
+
+# data files — varying sizes like real CSVs
+for i in $(seq 1 40); do
+    size=$(( (RANDOM % 900 + 100) * 1024 ))
+    head -c $size /dev/urandom | base64 > "{DEMO_DIR}/data/sample_$(printf '%03d' $i).csv"
+done
 '''], check=True)
 
 raw_tree = subprocess.run(
