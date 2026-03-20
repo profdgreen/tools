@@ -27,7 +27,7 @@ raw_tree = subprocess.run(
 ).stdout
 
 raw_lt = subprocess.run(
-    ['./lt', DEMO_DIR],
+    ['./lt', '-m', '4', DEMO_DIR],
     capture_output=True, text=True
 ).stdout
 
@@ -82,7 +82,7 @@ lt_panel_w = int(max(max_lt_vis * char_w + pad * 2, 280))
 # viewport height: fit the lt output, both panels same height
 lt_n = len(lt_lines) + 1  # +1 for prompt
 lt_content_h = lt_n * line_h + pad * 2
-max_viewport_h = 26 * line_h + pad * 2
+max_viewport_h = 30 * line_h + pad * 2
 panel_viewport_h = min(lt_content_h, max_viewport_h)
 panel_h = title_bar_h + panel_viewport_h
 
@@ -205,7 +205,7 @@ svg.append(render_chrome(lt_px, lt_py, lt_panel_w, panel_h,
 lt_cx = lt_px + pad
 lt_cy = lt_py + title_bar_h + pad + font_size
 
-svg.append(render_lines_svg(lt_lines, 'lt .',
+svg.append(render_lines_svg(lt_lines, 'lt -m 4 .',
                              lt_cx, lt_cy, lt_lines_start, lt_lines_dur))
 
 svg.append('</svg>\n')
