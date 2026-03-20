@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 423 1004"
+     width="423" height="1004">
+<defs>
+  <clipPath id="tc"><rect x="20" y="52"
+    width="383.0" height="440"/></clipPath>
+  <linearGradient id="fb" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0d1117" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#0d1117" stop-opacity="1"/>
+  </linearGradient>
+</defs>
+<style>.t { font-family: 'JetBrains Mono','Fira Code','SF Mono','Cascadia Code',Menlo,Consolas,monospace; font-size: 13px; }</style>
+<rect width="100%" height="100%" rx="10" fill="#161b22"/>
+
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.0s" fill="freeze"/>
+<rect x="20" y="20" width="383.0" height="472" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="20" width="383.0" height="32" rx="8" fill="#1c2128"/>
+<rect x="20" y="44" width="383.0" height="8" fill="#1c2128"/>
+<line x1="20" y1="52" x2="403.0" y2="52" stroke="#30363d" stroke-width="1"/>
+<circle cx="34" cy="36.0" r="5" fill="#ff5f57"/>
+<circle cx="54" cy="36.0" r="5" fill="#febc2e"/>
+<circle cx="74" cy="36.0" r="5" fill="#28c840"/>
+<text x="211.5" y="40.0" class="t" fill="#ff6b6b" text-anchor="middle" font-weight="bold" font-size="12">tree</text>
+</g>
+<g clip-path="url(#tc)">
+<g>
+  <animateTransform attributeName="transform" type="translate" from="0 0" to="0 -629" begin="1.7s" dur="2.0s" fill="freeze"/>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.400s" fill="freeze"/><text x="36" y="81" class="t" fill="#7ee787">$ </text><text x="51.6" y="81" class="t" fill="#e6edf3">tree -L 2 --du -h ./my-project</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.416s" fill="freeze"/><text x="36" y="98" class="t" fill="#c9d1d9" xml:space="preserve"><tspan fill="#5c9aff">./my-project</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.433s" fill="freeze"/><text x="36" y="115" class="t" fill="#c9d1d9" xml:space="preserve">├── [   0]  Makefile</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.449s" fill="freeze"/><text x="36" y="132" class="t" fill="#c9d1d9" xml:space="preserve">├── [   0]  README.md</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.466s" fill="freeze"/><text x="36" y="149" class="t" fill="#c9d1d9" xml:space="preserve">├── [4.0K]  <tspan fill="#5c9aff">data</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.482s" fill="freeze"/><text x="36" y="166" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_001.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.498s" fill="freeze"/><text x="36" y="183" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_002.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.515s" fill="freeze"/><text x="36" y="200" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_003.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.531s" fill="freeze"/><text x="36" y="217" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_004.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.548s" fill="freeze"/><text x="36" y="234" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_005.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.564s" fill="freeze"/><text x="36" y="251" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_006.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.580s" fill="freeze"/><text x="36" y="268" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_007.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.597s" fill="freeze"/><text x="36" y="285" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_008.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.613s" fill="freeze"/><text x="36" y="302" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_009.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.630s" fill="freeze"/><text x="36" y="319" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_010.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.646s" fill="freeze"/><text x="36" y="336" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_011.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.662s" fill="freeze"/><text x="36" y="353" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_012.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.679s" fill="freeze"/><text x="36" y="370" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_013.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.695s" fill="freeze"/><text x="36" y="387" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_014.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.711s" fill="freeze"/><text x="36" y="404" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_015.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.728s" fill="freeze"/><text x="36" y="421" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_016.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.744s" fill="freeze"/><text x="36" y="438" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_017.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.761s" fill="freeze"/><text x="36" y="455" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_018.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.777s" fill="freeze"/><text x="36" y="472" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_019.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.793s" fill="freeze"/><text x="36" y="489" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_020.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.810s" fill="freeze"/><text x="36" y="506" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_021.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.826s" fill="freeze"/><text x="36" y="523" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_022.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.843s" fill="freeze"/><text x="36" y="540" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_023.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.859s" fill="freeze"/><text x="36" y="557" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_024.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.875s" fill="freeze"/><text x="36" y="574" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_025.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.892s" fill="freeze"/><text x="36" y="591" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_026.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.908s" fill="freeze"/><text x="36" y="608" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_027.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.925s" fill="freeze"/><text x="36" y="625" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_028.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.941s" fill="freeze"/><text x="36" y="642" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_029.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.957s" fill="freeze"/><text x="36" y="659" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_030.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.974s" fill="freeze"/><text x="36" y="676" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_031.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="0.990s" fill="freeze"/><text x="36" y="693" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_032.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.007s" fill="freeze"/><text x="36" y="710" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_033.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.023s" fill="freeze"/><text x="36" y="727" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_034.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.039s" fill="freeze"/><text x="36" y="744" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_035.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.056s" fill="freeze"/><text x="36" y="761" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_036.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.072s" fill="freeze"/><text x="36" y="778" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_037.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.089s" fill="freeze"/><text x="36" y="795" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_038.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.105s" fill="freeze"/><text x="36" y="812" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_039.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.121s" fill="freeze"/><text x="36" y="829" class="t" fill="#c9d1d9" xml:space="preserve">│   └── [   0]  sample_040.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.138s" fill="freeze"/><text x="36" y="846" class="t" fill="#c9d1d9" xml:space="preserve">├── [  52]  <tspan fill="#5c9aff">docs</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.154s" fill="freeze"/><text x="36" y="863" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  api.md</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.170s" fill="freeze"/><text x="36" y="880" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  guide.md</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.187s" fill="freeze"/><text x="36" y="897" class="t" fill="#c9d1d9" xml:space="preserve">│   └── [   0]  index.md</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.203s" fill="freeze"/><text x="36" y="914" class="t" fill="#c9d1d9" xml:space="preserve">├── [   0]  setup.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.220s" fill="freeze"/><text x="36" y="931" class="t" fill="#c9d1d9" xml:space="preserve">├── [  73]  <tspan fill="#5c9aff">src</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.236s" fill="freeze"/><text x="36" y="948" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  __init__.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.252s" fill="freeze"/><text x="36" y="965" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  config.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.269s" fill="freeze"/><text x="36" y="982" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  main.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.285s" fill="freeze"/><text x="36" y="999" class="t" fill="#c9d1d9" xml:space="preserve">│   └── [   0]  utils.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.302s" fill="freeze"/><text x="36" y="1016" class="t" fill="#c9d1d9" xml:space="preserve">└── [  66]  <tspan fill="#5c9aff">tests</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.318s" fill="freeze"/><text x="36" y="1033" class="t" fill="#c9d1d9" xml:space="preserve">    ├── [   0]  __init__.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.334s" fill="freeze"/><text x="36" y="1050" class="t" fill="#c9d1d9" xml:space="preserve">    ├── [   0]  test_main.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.351s" fill="freeze"/><text x="36" y="1067" class="t" fill="#c9d1d9" xml:space="preserve">    └── [   0]  test_utils.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.367s" fill="freeze"/><text x="36" y="1084" class="t" fill="#c9d1d9" xml:space="preserve"></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="1.384s" fill="freeze"/><text x="36" y="1101" class="t" fill="#c9d1d9" xml:space="preserve"> 4.3K used in 4 directories, 53 files</text></g>
+</g></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.0s" fill="freeze"/><rect x="21" y="442" width="381.0" height="50" fill="url(#fb)"/></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="4.2s" fill="freeze"/>
+<rect x="20" y="512" width="383.0" height="472" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+<rect x="20" y="512" width="383.0" height="32" rx="8" fill="#1c2128"/>
+<rect x="20" y="536" width="383.0" height="8" fill="#1c2128"/>
+<line x1="20" y1="544" x2="403.0" y2="544" stroke="#30363d" stroke-width="1"/>
+<circle cx="34" cy="528.0" r="5" fill="#ff5f57"/>
+<circle cx="54" cy="528.0" r="5" fill="#febc2e"/>
+<circle cx="74" cy="528.0" r="5" fill="#28c840"/>
+<text x="211.5" y="532.0" class="t" fill="#51cf66" text-anchor="middle" font-weight="bold" font-size="12">lt</text>
+</g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.500s" fill="freeze"/><text x="36" y="573" class="t" fill="#7ee787">$ </text><text x="51.6" y="573" class="t" fill="#e6edf3">lt ./my-project</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.535s" fill="freeze"/><text x="36" y="590" class="t" fill="#c9d1d9" xml:space="preserve"><tspan fill="#5c9aff">./my-project</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.571s" fill="freeze"/><text x="36" y="607" class="t" fill="#c9d1d9" xml:space="preserve">├── [   0]  Makefile</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.606s" fill="freeze"/><text x="36" y="624" class="t" fill="#c9d1d9" xml:space="preserve">├── [   0]  README.md</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.641s" fill="freeze"/><text x="36" y="641" class="t" fill="#c9d1d9" xml:space="preserve">├── [4.0K]  <tspan fill="#5c9aff">data</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.676s" fill="freeze"/><text x="36" y="658" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_001.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.712s" fill="freeze"/><text x="36" y="675" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_002.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.747s" fill="freeze"/><text x="36" y="692" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_003.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.782s" fill="freeze"/><text x="36" y="709" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_004.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.818s" fill="freeze"/><text x="36" y="726" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_005.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.853s" fill="freeze"/><text x="36" y="743" class="t" fill="#c9d1d9" xml:space="preserve"><tspan fill="#666666">│   ·   </tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.888s" fill="freeze"/><text x="36" y="760" class="t" fill="#c9d1d9" xml:space="preserve"><tspan fill="#666666">│   ·   (30 more items)</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.924s" fill="freeze"/><text x="36" y="777" class="t" fill="#c9d1d9" xml:space="preserve"><tspan fill="#666666">│   ·   </tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.959s" fill="freeze"/><text x="36" y="794" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_036.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="4.994s" fill="freeze"/><text x="36" y="811" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_037.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.029s" fill="freeze"/><text x="36" y="828" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_038.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.065s" fill="freeze"/><text x="36" y="845" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  sample_039.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.100s" fill="freeze"/><text x="36" y="862" class="t" fill="#c9d1d9" xml:space="preserve">│   └── [   0]  sample_040.csv</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.135s" fill="freeze"/><text x="36" y="879" class="t" fill="#c9d1d9" xml:space="preserve">├── [  52]  <tspan fill="#5c9aff">docs</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.171s" fill="freeze"/><text x="36" y="896" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  api.md</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.206s" fill="freeze"/><text x="36" y="913" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  guide.md</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.241s" fill="freeze"/><text x="36" y="930" class="t" fill="#c9d1d9" xml:space="preserve">│   └── [   0]  index.md</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.276s" fill="freeze"/><text x="36" y="947" class="t" fill="#c9d1d9" xml:space="preserve">├── [   0]  setup.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.312s" fill="freeze"/><text x="36" y="964" class="t" fill="#c9d1d9" xml:space="preserve">├── [  73]  <tspan fill="#5c9aff">src</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.347s" fill="freeze"/><text x="36" y="981" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  __init__.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.382s" fill="freeze"/><text x="36" y="998" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  config.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.418s" fill="freeze"/><text x="36" y="1015" class="t" fill="#c9d1d9" xml:space="preserve">│   ├── [   0]  main.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.453s" fill="freeze"/><text x="36" y="1032" class="t" fill="#c9d1d9" xml:space="preserve">│   └── [   0]  utils.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.488s" fill="freeze"/><text x="36" y="1049" class="t" fill="#c9d1d9" xml:space="preserve">└── [  66]  <tspan fill="#5c9aff">tests</tspan></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.524s" fill="freeze"/><text x="36" y="1066" class="t" fill="#c9d1d9" xml:space="preserve">    ├── [   0]  __init__.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.559s" fill="freeze"/><text x="36" y="1083" class="t" fill="#c9d1d9" xml:space="preserve">    ├── [   0]  test_main.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.594s" fill="freeze"/><text x="36" y="1100" class="t" fill="#c9d1d9" xml:space="preserve">    └── [   0]  test_utils.py</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.629s" fill="freeze"/><text x="36" y="1117" class="t" fill="#c9d1d9" xml:space="preserve"></text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.05s" begin="5.665s" fill="freeze"/><text x="36" y="1134" class="t" fill="#c9d1d9" xml:space="preserve"> 4.3K used in 4 directories, 53 files</text></g>
+</svg>

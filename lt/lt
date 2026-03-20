@@ -1,0 +1,197 @@
+#!/usr/bin/env bash
+#
+# lt — a smarter tree wrapper
+#
+# Defaults: tree -L 2 --du -h
+# Trims the deepest level of the tree to show at most -m N items per parent (default 10).
+# If output still exceeds ~100 lines, progressively reduces the limit and trims all levels.
+
+set -euo pipefail
+
+# ── defaults ──
+DEFAULT_LEVEL=2
+DEFAULT_MAX=10
+MAX_LINES=100
+
+# ── parse our custom flags out, pass the rest to tree ──
+max_items=$DEFAULT_MAX
+level=$DEFAULT_LEVEL
+level_set_by_user=false
+tree_args=()
+positional_args=()
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -m)
+            max_items="$2"
+            shift 2
+            ;;
+        -m[0-9]*)
+            max_items="${1#-m}"
+            shift
+            ;;
+        -L)
+            level="$2"
+            level_set_by_user=true
+            tree_args+=("-L" "$2")
+            shift 2
+            ;;
+        -L[0-9]*)
+            level="${1#-L}"
+            level_set_by_user=true
+            tree_args+=("$1")
+            shift
+            ;;
+        -*)
+            tree_args+=("$1")
+            shift
+            ;;
+        *)
+            positional_args+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if [[ "$level_set_by_user" == false ]]; then
+    tree_args+=("-L" "$DEFAULT_LEVEL")
+fi
+
+has_du=false
+has_h=false
+has_n=false
+for arg in "${tree_args[@]}"; do
+    [[ "$arg" == "--du" ]] && has_du=true
+    [[ "$arg" == "-h" ]] && has_h=true
+    [[ "$arg" == "-n" ]] && has_n=true
+done
+$has_du || tree_args+=("--du")
+$has_h  || tree_args+=("-h")
+
+# ── run tree: ascii for depth parsing, unicode (with color) for display ──
+raw_ascii=$(tree --charset=ascii "${tree_args[@]}" "${positional_args[@]}" 2>&1) || true
+# force color unless user explicitly passed -n
+color_args=()
+$has_n || color_args+=("-C")
+raw_unicode=$(tree "${color_args[@]}" "${tree_args[@]}" "${positional_args[@]}" 2>&1) || true
+
+# ── awk-based trimming ──
+# args: max items per block, minimum depth to start trimming
+trim_output() {
+    local m=$1
+    local min_depth=$2
+    paste -d$'\x01' <(echo "$raw_ascii") <(echo "$raw_unicode") | awk -F$'\x01' -v max="$m" -v min_depth="$min_depth" '
+    function get_depth(line,    d, rest) {
+        d = 0
+        rest = line
+        while (1) {
+            if (substr(rest, 1, 4) == "|-- " || \
+                substr(rest, 1, 4) == "`-- " || \
+                substr(rest, 1, 4) == "|   " || \
+                substr(rest, 1, 4) == "    ") {
+                d++
+                rest = substr(rest, 5)
+            } else {
+                break
+            }
+        }
+        return d
+    }
+
+    # build the unicode continuation prefix for an ellipsis line at a given depth
+    # uses the ascii line to determine which levels have a continuing parent (| vs space)
+    # if use_dot is true, the rightmost │ is replaced with · to visually break the branch
+    function make_prefix(aline, depth, use_dot,    prefix, j, seg) {
+        prefix = ""
+        for (j = 0; j < depth - 1; j++) {
+            seg = substr(aline, j*4+1, 4)
+            if (seg == "|   " || seg == "|-- " || seg == "`-- ") {
+                prefix = prefix "\xe2\x94\x82   "
+            } else {
+                prefix = prefix "    "
+            }
+        }
+        if (use_dot) {
+            prefix = prefix "\xc2\xb7   "
+        } else {
+            prefix = prefix "\xe2\x94\x82   "
+        }
+        return prefix
+    }
+
+    # flush a collected block of sibling lines, trimming if over max
+    function flush_block(    i, half_top, half_bot, hidden, label, prefix, dim, reset) {
+        if (blk_n <= max) {
+            for (i = 0; i < blk_n; i++) print blk_u[i]
+        } else {
+            half_top = int((max + 1) / 2)
+            half_bot = int(max / 2)
+            for (i = 0; i < half_top; i++) print blk_u[i]
+            dot_prefix = make_prefix(blk_a[0], blk_depth, 1)
+            hidden = blk_n - half_top - half_bot
+            label = (hidden == 1) ? "(1 more item)" : "(" hidden " more items)"
+            dim = "\033[2m"
+            reset = "\033[0m"
+            print dim dot_prefix reset
+            print dim dot_prefix label reset
+            print dim dot_prefix reset
+            for (i = blk_n - half_bot; i < blk_n; i++) print blk_u[i]
+        }
+        blk_n = 0
+    }
+
+    BEGIN { blk_n = 0 }
+
+    {
+        aline = $1
+        uline = $2
+        d = get_depth(aline)
+
+        if (d >= min_depth && d > 0) {
+            # parent key = everything in the ascii line up to (d-1)*4 chars, plus the depth
+            pkey = (d > 1) ? (substr(aline, 1, (d-1)*4) SUBSEP d) : ("" SUBSEP d)
+
+            if (blk_n == 0) {
+                blk_pkey = pkey
+                blk_depth = d
+                blk_a[0] = aline; blk_u[0] = uline
+                blk_n = 1
+            } else if (pkey == blk_pkey) {
+                blk_a[blk_n] = aline; blk_u[blk_n] = uline
+                blk_n++
+            } else {
+                flush_block()
+                blk_pkey = pkey
+                blk_depth = d
+                blk_a[0] = aline; blk_u[0] = uline
+                blk_n = 1
+            }
+        } else {
+            if (blk_n > 0) flush_block()
+            print uline
+        }
+    }
+
+    END { if (blk_n > 0) flush_block() }
+    '
+}
+
+# ── first pass: trim only the deepest level ──
+result=$(trim_output "$max_items" "$level")
+line_count=$(echo "$result" | wc -l)
+
+# ── if still too long, trim all levels and progressively reduce ──
+if [[ $line_count -gt $MAX_LINES ]]; then
+    current_max=$max_items
+    result=$(trim_output "$current_max" 1)
+    line_count=$(echo "$result" | wc -l)
+
+    while [[ $line_count -gt $MAX_LINES && $current_max -gt 2 ]]; do
+        current_max=$(( current_max * 3 / 5 ))
+        [[ $current_max -lt 2 ]] && current_max=2
+        result=$(trim_output "$current_max" 1)
+        line_count=$(echo "$result" | wc -l)
+    done
+fi
+
+echo "$result"
