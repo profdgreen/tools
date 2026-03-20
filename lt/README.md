@@ -3,7 +3,7 @@
 A smarter `tree` wrapper that keeps output readable by trimming long directory listings.
 
 <p align="center">
-  <img src="demo.svg" alt="lt demo" width="500">
+  <img src="demo.svg" alt="lt demo" width="700">
 </p>
 
 ## The problem

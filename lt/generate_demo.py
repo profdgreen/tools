@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''
 Generate an animated SVG terminal demo for lt.
-Vertical layout: tree (scrolling, clipped) on top, lt (fits cleanly) on bottom.
+Side-by-side layout: tree (scrolling, clipped) on left, lt (fits cleanly) on right.
 Run from the lt/ directory: python generate_demo.py
 '''
 
@@ -73,18 +73,16 @@ pad = 16
 corner_r = 8
 title_bar_h = 32
 
-max_vis = max(
-    max(visible_len(l) for l in tree_lines),
-    max(visible_len(l) for l in lt_lines),
-    45
-)
-panel_w = max_vis * char_w + pad * 2
+# each panel sized to its own content width
+max_tree_vis = max(visible_len(l) for l in tree_lines)
+max_lt_vis = max(visible_len(l) for l in lt_lines)
+tree_panel_w = int(max(max_tree_vis * char_w + pad * 2, 280))
+lt_panel_w = int(max(max_lt_vis * char_w + pad * 2, 280))
 
-# both panels same viewport height, sized to fit the lt output
+# viewport height: fit the lt output, both panels same height
 lt_n = len(lt_lines) + 1  # +1 for prompt
 lt_content_h = lt_n * line_h + pad * 2
-# cap at a reasonable height so the SVG isn't huge
-max_viewport_h = 24 * line_h + pad * 2
+max_viewport_h = 26 * line_h + pad * 2
 panel_viewport_h = min(lt_content_h, max_viewport_h)
 panel_h = title_bar_h + panel_viewport_h
 
@@ -93,15 +91,16 @@ tree_n = len(tree_lines) + 1
 tree_content_h = tree_n * line_h + pad
 scroll_distance = max(tree_content_h - panel_viewport_h + pad, 0)
 
+# side-by-side positions
 gap = 20
 svg_pad = 20
-total_w = panel_w + svg_pad * 2
-total_h = svg_pad + panel_h + gap + panel_h + svg_pad
-
 tree_px = svg_pad
 tree_py = svg_pad
-lt_px = svg_pad
-lt_py = tree_py + panel_h + gap
+lt_px = tree_px + tree_panel_w + gap
+lt_py = svg_pad
+
+total_w = svg_pad + tree_panel_w + gap + lt_panel_w + svg_pad
+total_h = svg_pad + panel_h + svg_pad
 
 # ── timing ──
 tree_panel_fade = 0.0
@@ -118,23 +117,19 @@ def render_chrome(px, py, pw, ph, title, title_color, fade_delay):
     p = []
     p.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" '
              f'dur="0.3s" begin="{fade_delay}s" fill="freeze"/>')
-    # background
     p.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" '
              f'rx="{corner_r}" fill="#0d1117" stroke="#30363d" stroke-width="1"/>')
-    # title bar
     p.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{title_bar_h}" '
              f'rx="{corner_r}" fill="#1c2128"/>')
     p.append(f'<rect x="{px}" y="{py + title_bar_h - corner_r}" width="{pw}" '
              f'height="{corner_r}" fill="#1c2128"/>')
     p.append(f'<line x1="{px}" y1="{py + title_bar_h}" x2="{px + pw}" '
              f'y2="{py + title_bar_h}" stroke="#30363d" stroke-width="1"/>')
-    # dots
     dx = px + 14
     dy = py + title_bar_h / 2
     for c in ['#ff5f57', '#febc2e', '#28c840']:
         p.append(f'<circle cx="{dx}" cy="{dy}" r="5" fill="{c}"/>')
         dx += 20
-    # title
     p.append(f'<text x="{px + pw/2}" y="{py + title_bar_h/2 + 4}" '
              f'class="t" fill="{title_color}" text-anchor="middle" '
              f'font-weight="bold" font-size="12">{html.escape(title)}</text>')
@@ -145,7 +140,6 @@ def render_chrome(px, py, pw, ph, title, title_color, fade_delay):
 def render_lines_svg(lines, cmd, cx, cy, start, dur):
     p = []
     items = []
-    # prompt
     items.append(
         f'<text x="{cx}" y="{cy}" class="t" fill="#7ee787">$ </text>'
         f'<text x="{cx + char_w * 2}" y="{cy}" class="t" fill="#e6edf3">'
@@ -170,7 +164,7 @@ svg.append(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {total_w:.0f
      width="{total_w:.0f}" height="{total_h:.0f}">
 <defs>
   <clipPath id="tc"><rect x="{tree_px}" y="{tree_py + title_bar_h}"
-    width="{panel_w}" height="{panel_viewport_h}"/></clipPath>
+    width="{tree_panel_w}" height="{panel_viewport_h}"/></clipPath>
   <linearGradient id="fb" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0%" stop-color="#0d1117" stop-opacity="0"/>
     <stop offset="100%" stop-color="#0d1117" stop-opacity="1"/>
@@ -180,10 +174,10 @@ svg.append(f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {total_w:.0f
 <rect width="100%" height="100%" rx="10" fill="#161b22"/>
 ''')
 
-# ── tree panel chrome ──
-svg.append(render_chrome(tree_px, tree_py, panel_w, panel_h, 'tree', '#ff6b6b', tree_panel_fade))
+# ── tree panel (left) ──
+svg.append(render_chrome(tree_px, tree_py, tree_panel_w, panel_h,
+                          'tree', '#ff6b6b', tree_panel_fade))
 
-# ── tree content (clipped + scrolling) ──
 tree_cx = tree_px + pad
 tree_cy = tree_py + title_bar_h + pad + font_size
 
@@ -193,7 +187,7 @@ if scroll_distance > 0:
     svg.append(f'  <animateTransform attributeName="transform" type="translate" '
                f'from="0 0" to="0 -{scroll_distance:.0f}" '
                f'begin="{scroll_start}s" dur="{scroll_dur}s" fill="freeze"/>')
-svg.append(render_lines_svg(tree_lines, 'tree -L 2 --du -h ./my-project',
+svg.append(render_lines_svg(tree_lines, 'tree -L 2 --du -h .',
                              tree_cx, tree_cy, tree_lines_start, tree_lines_dur))
 svg.append('</g></g>')
 
@@ -201,17 +195,17 @@ svg.append('</g></g>')
 fade_y = tree_py + panel_h - 50
 svg.append(f'<g opacity="0"><animate attributeName="opacity" from="0" to="1" '
            f'dur="0.3s" begin="{tree_panel_fade}s" fill="freeze"/>'
-           f'<rect x="{tree_px + 1}" y="{fade_y}" width="{panel_w - 2}" height="50" '
+           f'<rect x="{tree_px + 1}" y="{fade_y}" width="{tree_panel_w - 2}" height="50" '
            f'fill="url(#fb)"/></g>')
 
-# ── lt panel chrome ──
-svg.append(render_chrome(lt_px, lt_py, panel_w, panel_h, 'lt', '#51cf66', lt_panel_fade))
+# ── lt panel (right) ──
+svg.append(render_chrome(lt_px, lt_py, lt_panel_w, panel_h,
+                          'lt', '#51cf66', lt_panel_fade))
 
-# ── lt content ──
 lt_cx = lt_px + pad
 lt_cy = lt_py + title_bar_h + pad + font_size
 
-svg.append(render_lines_svg(lt_lines, 'lt ./my-project',
+svg.append(render_lines_svg(lt_lines, 'lt .',
                              lt_cx, lt_cy, lt_lines_start, lt_lines_dur))
 
 svg.append('</svg>\n')
